@@ -5,7 +5,7 @@ import type { ReactNode, ButtonHTMLAttributes } from "react";
 type ButtonProps = {
   children: ReactNode;
   className?: string;
-  href?: LinkProps["href"];
+  href?: LinkProps<HTMLAnchorElement>["href"];
   variant?: "primary" | "secondary" | "ghost";
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
