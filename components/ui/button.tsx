@@ -1,15 +1,13 @@
-import Link from "next/link";
+import Link, { type LinkProps } from "next/link";
 import { clsx } from "clsx";
+import type { ReactNode, ButtonHTMLAttributes } from "react";
 
 type ButtonProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
-  href?: string;
-  onClick?: () => void;
-  type?: "button" | "submit" | "reset";
+  href?: LinkProps["href"];
   variant?: "primary" | "secondary" | "ghost";
-  disabled?: boolean;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const buttonStyles = {
   primary:
@@ -27,10 +25,10 @@ export function Button({
   children,
   className,
   href,
-  onClick,
   type = "button",
   variant = "primary",
-  disabled
+  disabled,
+  ...props
 }: ButtonProps) {
   const classes = clsx(baseClassName, buttonStyles[variant], className);
 
@@ -43,7 +41,12 @@ export function Button({
   }
 
   return (
-    <button className={classes} disabled={disabled} onClick={onClick} type={type}>
+    <button
+      className={classes}
+      disabled={disabled}
+      type={type}
+      {...props}
+    >
       {children}
     </button>
   );
