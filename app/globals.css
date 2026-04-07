@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ivory text-slate-900 antialiased;
+  background-image:
+    radial-gradient(circle at top, rgba(255, 252, 248, 0.96), rgba(245, 240, 232, 0.98)),
+    linear-gradient(180deg, rgba(196, 157, 104, 0.08), transparent 18%);
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(196, 157, 104, 0.24);
+}
+
+.panel {
+  @apply rounded-[28px] border border-[#e7ddd1] bg-[rgba(255,250,245,0.88)] shadow-soft backdrop-blur;
+}
+
+.eyebrow {
+  @apply inline-flex items-center rounded-full border border-tan-100 bg-tan-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-tan-700;
+}
+
+.brand-copy {
+  @apply text-sm uppercase tracking-[0.18em] text-slate-500;
+}
